@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Twitch, Mail, Music, Code, Zap, ExternalLink } from "lucide-react";
+import { Github, Twitch, Mail, Music, Code, Zap, ExternalLink, Brain, Radio, Waves } from "lucide-react";
+import { motion } from "framer-motion";
 
 /**
  * Design Philosophy: Neon Cyberpunk Aesthetic
@@ -29,9 +30,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Background Image */}
+        {/* Animated Background Image */}
         <div 
-          className="absolute inset-0 z-0 opacity-40"
+          className="absolute inset-0 z-0 opacity-30"
           style={{
             backgroundImage: "url('/images/hero-neon-bg.png')",
             backgroundSize: 'cover',
@@ -39,43 +40,229 @@ export default function Home() {
           }}
         />
         
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 z-1 bg-gradient-to-b from-background via-transparent to-background" />
+        {/* Animated Gradient Overlay */}
+        <motion.div 
+          className="absolute inset-0 z-1 bg-gradient-to-b from-background via-transparent to-background"
+          animate={{
+            background: [
+              "linear-gradient(to bottom, rgba(10, 14, 39, 0.9), transparent, rgba(10, 14, 39, 0.9))",
+              "linear-gradient(to bottom, rgba(10, 14, 39, 0.7), transparent, rgba(10, 14, 39, 0.7))",
+              "linear-gradient(to bottom, rgba(10, 14, 39, 0.9), transparent, rgba(10, 14, 39, 0.9))",
+            ],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Floating Animated Icons - Music Theme */}
+        <motion.div
+          className="absolute top-20 left-10 z-5 text-accent/60"
+          animate={{
+            y: [0, -30, 0],
+            rotate: [0, 10, -10, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Music className="h-16 w-16 drop-shadow-[0_0_15px_rgba(255,0,110,0.8)]" />
+        </motion.div>
+
+        <motion.div
+          className="absolute top-40 right-20 z-5 text-chart-1/60"
+          animate={{
+            y: [0, -40, 0],
+            rotate: [0, -15, 15, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        >
+          <Radio className="h-20 w-20 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
+        </motion.div>
+
+        <motion.div
+          className="absolute bottom-40 left-20 z-5 text-secondary-foreground/60"
+          animate={{
+            y: [0, -35, 0],
+            rotate: [0, 20, -20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        >
+          <Waves className="h-14 w-14 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
+        </motion.div>
+
+        {/* Floating Animated Icons - Twitch Theme */}
+        <motion.div
+          className="absolute top-60 right-10 z-5 text-secondary-foreground/60"
+          animate={{
+            y: [0, -25, 0],
+            rotate: [0, -10, 10, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.3,
+          }}
+        >
+          <Twitch className="h-16 w-16 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
+        </motion.div>
+
+        {/* Floating Animated Icons - AI Theme */}
+        <motion.div
+          className="absolute bottom-60 right-32 z-5 text-chart-1/60"
+          animate={{
+            y: [0, -30, 0],
+            rotate: [0, 15, -15, 0],
+            scale: [1, 1.25, 1],
+          }}
+          transition={{
+            duration: 4.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.7,
+          }}
+        >
+          <Brain className="h-16 w-16 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
+        </motion.div>
+
+        <motion.div
+          className="absolute top-1/3 left-1/4 z-5 text-accent/50"
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, -12, 12, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 3.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.2,
+          }}
+        >
+          <Code className="h-12 w-12 drop-shadow-[0_0_15px_rgba(255,0,110,0.8)]" />
+        </motion.div>
+
+        {/* Animated Particles/Orbs */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full z-2"
+            style={{
+              left: `${15 + i * 12}%`,
+              top: `${20 + (i % 3) * 30}%`,
+              width: `${20 + (i % 3) * 15}px`,
+              height: `${20 + (i % 3) * 15}px`,
+              background: i % 3 === 0 
+                ? 'radial-gradient(circle, rgba(255, 0, 110, 0.4), transparent)'
+                : i % 3 === 1
+                ? 'radial-gradient(circle, rgba(0, 217, 255, 0.4), transparent)'
+                : 'radial-gradient(circle, rgba(157, 78, 221, 0.4), transparent)',
+              filter: 'blur(2px)',
+            }}
+            animate={{
+              y: [0, -50, 0],
+              x: [0, Math.sin(i) * 30, 0],
+              scale: [1, 1.5, 1],
+              opacity: [0.3, 0.7, 0.3],
+            }}
+            transition={{
+              duration: 3 + i * 0.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.3,
+            }}
+          />
+        ))}
 
         {/* Content */}
         <div className="container relative z-10 text-center">
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-7xl font-bold glow-magenta animate-fade-in">
+          <motion.div 
+            className="space-y-6 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h1 
+              className="text-6xl md:text-7xl font-bold glow-magenta"
+              animate={{
+                textShadow: [
+                  "0 0 10px #FF006E, 0 0 20px #FF006E, 0 0 30px #FF006E",
+                  "0 0 20px #FF006E, 0 0 30px #FF006E, 0 0 40px #FF006E",
+                  "0 0 10px #FF006E, 0 0 20px #FF006E, 0 0 30px #FF006E",
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
               iTorpu
-            </h1>
-            <p className="text-2xl md:text-3xl text-secondary-foreground font-light">
+            </motion.h1>
+            <motion.p 
+              className="text-2xl md:text-3xl text-secondary-foreground font-light"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
               Developer • Innovation Architect • AI Music Producer
-            </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            </motion.p>
+            <motion.p 
+              className="text-lg text-muted-foreground max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
               Crafting the future through code, innovation, and AI-generated music. 
               Exploring the intersection of technology and creativity.
-            </p>
+            </motion.p>
             
-            <div className="flex gap-4 justify-center pt-8 flex-wrap">
+            <motion.div 
+              className="flex gap-4 justify-center pt-8 flex-wrap"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
               <a href="https://www.twitch.tv/itorpu" target="_blank" rel="noopener noreferrer">
-                <Button 
-                  className="bg-accent hover:bg-accent/90 text-white border-2 border-accent hover:border-accent/80 transition-all duration-300 hover:shadow-lg hover:shadow-accent/50"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Twitch className="mr-2 h-4 w-4" />
-                  Watch on Twitch
-                </Button>
+                  <Button 
+                    className="bg-accent hover:bg-accent/90 text-white border-2 border-accent hover:border-accent/80 transition-all duration-300 hover:shadow-lg hover:shadow-accent/50"
+                  >
+                    <Twitch className="mr-2 h-4 w-4" />
+                    Watch on Twitch
+                  </Button>
+                </motion.div>
               </a>
               <a href="https://suno.com/@orp20" target="_blank" rel="noopener noreferrer">
-                <Button 
-                  variant="outline"
-                  className="border-2 border-secondary-foreground hover:border-accent hover:text-accent transition-all duration-300"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Music className="mr-2 h-4 w-4" />
-                  Suno Music
-                </Button>
+                  <Button 
+                    variant="outline"
+                    className="border-2 border-secondary-foreground hover:border-accent hover:text-accent transition-all duration-300"
+                  >
+                    <Music className="mr-2 h-4 w-4" />
+                    Suno Music
+                  </Button>
+                </motion.div>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Animated diagonal divider */}
