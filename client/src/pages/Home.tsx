@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Twitch, Mail, Music, Code, Zap, ExternalLink, Brain, Radio, Waves } from "lucide-react";
+import { Github, Mail, Music, Code, Zap, ExternalLink, Brain, Radio, Waves } from "lucide-react";
 import { motion } from "framer-motion";
 
 /**
@@ -104,7 +104,7 @@ export default function Home() {
           <Waves className="h-14 w-14 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
         </motion.div>
 
-        {/* Floating Animated Icons - Twitch Theme */}
+        {/* Floating Animated Icons - Stream Theme */}
         <motion.div
           className="absolute top-60 right-10 z-5 text-secondary-foreground/60"
           animate={{
@@ -119,7 +119,7 @@ export default function Home() {
             delay: 0.3,
           }}
         >
-          <Twitch className="h-16 w-16 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
+          <Radio className="h-16 w-16 drop-shadow-[0_0_15px_rgba(0,217,255,0.8)]" />
         </motion.div>
 
         {/* Floating Animated Icons - AI Theme */}
@@ -234,7 +234,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              <a href="https://www.twitch.tv/itorpu" target="_blank" rel="noopener noreferrer">
+              <a href="https://kick.com/itorpu" target="_blank" rel="noopener noreferrer">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -242,8 +242,8 @@ export default function Home() {
                   <Button 
                     className="bg-accent hover:bg-accent/90 text-white border-2 border-accent hover:border-accent/80 transition-all duration-300 hover:shadow-lg hover:shadow-accent/50"
                   >
-                    <Twitch className="mr-2 h-4 w-4" />
-                    Watch on Twitch
+                    <Radio className="mr-2 h-4 w-4" />
+                    Watch on Kick
                   </Button>
                 </motion.div>
               </a>
@@ -376,10 +376,10 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Live Streaming Content</h3>
                 <p className="text-muted-foreground mb-4">
-                  Regular streams showcasing game development, coding sessions, and AI music production on Twitch.
+                Regular streams showcasing game development, coding sessions, and AI music production on Kick.
                 </p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="text-xs bg-chart-1/20 text-chart-1 px-2 py-1 rounded">Twitch</span>
+                  <span className="text-xs bg-chart-1/20 text-chart-1 px-2 py-1 rounded">Kick</span>
                   <span className="text-xs bg-accent/20 text-accent px-2 py-1 rounded">Gaming</span>
                   <span className="text-xs bg-secondary-foreground/20 text-secondary-foreground px-2 py-1 rounded">Dev</span>
                 </div>
@@ -468,10 +468,10 @@ export default function Home() {
                   </div>
                 </a>
 
-                <a href="https://www.twitch.tv/itorpu" target="_blank" rel="noopener noreferrer" className="group">
+                <a href="https://kick.com/itorpu" target="_blank" rel="noopener noreferrer" className="group">
                   <div className="p-6 bg-gradient-to-br from-secondary-foreground/10 to-secondary-foreground/5 border-2 border-secondary-foreground rounded-lg hover:border-secondary-foreground/80 transition-all duration-300 hover:shadow-lg hover:shadow-secondary-foreground/20">
-                    <Twitch className="h-8 w-8 text-secondary-foreground mb-3 group-hover:scale-110 transition-transform" />
-                    <h3 className="font-bold mb-2">Twitch</h3>
+                    <Radio className="h-8 w-8 text-secondary-foreground mb-3 group-hover:scale-110 transition-transform" />
+                    <h3 className="font-bold mb-2">Kick</h3>
                     <p className="text-sm text-muted-foreground">@itorpu</p>
                   </div>
                 </a>
