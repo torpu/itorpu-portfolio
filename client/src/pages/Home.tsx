@@ -323,7 +323,7 @@ export default function Home() {
               I'm a passionate technologist who thrives at the intersection of code, innovation, and creativity. 
               With expertise in full-stack development and a keen interest in artificial intelligence, I'm constantly 
               exploring how technology can enhance human creativity. My work spans from building robust applications 
-              to experimenting with AI music generation and streaming interactive content on Twitch.
+              to experimenting with AI music generation and streaming interactive content on Kick.
             </p>
           </div>
         </div>
@@ -371,12 +371,12 @@ export default function Home() {
 
             <Card className="bg-card border-2 border-border overflow-hidden hover:border-chart-1 transition-all duration-300 group">
               <div className="h-48 bg-gradient-to-br from-chart-1/20 to-accent/20 flex items-center justify-center overflow-hidden">
-                <Twitch className="h-24 w-24 text-chart-1/40 group-hover:scale-110 transition-transform duration-300" />
+                <Radio className="h-24 w-24 text-chart-1/40 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Live Streaming Content</h3>
                 <p className="text-muted-foreground mb-4">
-                Regular streams showcasing game development, coding sessions, and AI music production on Kick.
+                  Regular streams showcasing game development, coding sessions, and AI music production on Kick.
                 </p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="text-xs bg-chart-1/20 text-chart-1 px-2 py-1 rounded">Kick</span>
